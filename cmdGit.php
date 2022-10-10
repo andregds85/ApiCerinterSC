@@ -13,7 +13,7 @@ git add --all
 
 Cria um commit com uma mensagem 
 
-git commit -m "Contruindo a Autenticação da API"
+git commit -m "Alterando campo text para check box"
 
 
 git push -u origin master
