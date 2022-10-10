@@ -25,12 +25,10 @@ use App\Http\Controllers\BuscaUsuarioController;
 use App\Http\Controllers\ChecklistControllerPDFS;
 
 
-
-
-
 Route::get('/', function () {
-    return view('home');
+    return view('welcome');
 });
+
 
 Auth::routes();
 
@@ -52,7 +50,6 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('pesquisar',ProdutoController::class);
     Route::resource('buscaUsuario',BuscaUsuarioController::class);
 
- 
     Route::resource('sucesso', MonitoramentoController::class);
     Route::resource('aerio', aerioController::class);
     Route::resource('apaga', apagaController::class);
@@ -61,12 +58,9 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('minhassolicitacoes',MinhasSolicitacoesController::class);
     Route::get('checklistpdf/{id}', [ChecklistControllerPDF::class, 'index']); 
     Route::get('checklistpdfs/{id}', [ChecklistControllerPDFS::class, 'index']); 
-
- 
-        
+       
     Route::get('pdf', [TerrestreControllerPDF::class, 'generatePDF']); 
     Route::get('aereoPdf', [aerioControllerPDF::class, 'generatePDF']); 
-
     
     Route::resource('manual', ManualController::class);
   
@@ -74,10 +68,10 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('importpacie', 'App\Http\Controllers\Import_Export_ControllerPacie@import');
     Route::get('exportpacie', 'App\Http\Controllers\Import_Export_ControllerPacie@export');
 
-
     Route::get('import_export', 'App\Http\Controllers\Import_Export_Controller@index');
     Route::post('import', 'App\Http\Controllers\Import_Export_Controller@import');
     Route::get('export', 'App\Http\Controllers\Import_Export_Controller@export');
+   
 
 
 });

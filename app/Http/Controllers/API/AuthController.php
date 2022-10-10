@@ -24,6 +24,7 @@ class AuthController extends BaseController
         } 
     }
    
+    
     public function signup(Request $request)
     {
         $validator = Validator::make($request->all(), [
