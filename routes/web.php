@@ -24,11 +24,9 @@ use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\BuscaUsuarioController;
 use App\Http\Controllers\ChecklistControllerPDFS;
 
-
 Route::get('/', function () {
     return view('welcome');
 });
-
 
 Auth::routes();
 
