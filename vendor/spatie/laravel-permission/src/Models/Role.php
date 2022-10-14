@@ -42,9 +42,7 @@ class Role extends Model implements RoleContract
         return static::query()->create($attributes);
     }
 
-    /**
-     * A role may be given various permissions.
-     */
+    
     public function permissions(): BelongsToMany
     {
         return $this->belongsToMany(
@@ -55,9 +53,6 @@ class Role extends Model implements RoleContract
         );
     }
 
-    /**
-     * A role belongs to some users of the model associated with its guard.
-     */
     public function users(): BelongsToMany
     {
         return $this->morphedByMany(
@@ -69,16 +64,7 @@ class Role extends Model implements RoleContract
         );
     }
 
-    /**
-     * Find a role by its name and guard name.
-     *
-     * @param string $name
-     * @param string|null $guardName
-     *
-     * @return \Spatie\Permission\Contracts\Role|\Spatie\Permission\Models\Role
-     *
-     * @throws \Spatie\Permission\Exceptions\RoleDoesNotExist
-     */
+
     public static function findByName(string $name, $guardName = null): RoleContract
     {
         $guardName = $guardName ?? Guard::getDefaultName(static::class);
