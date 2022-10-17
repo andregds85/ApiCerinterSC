@@ -13,7 +13,7 @@ git add --all
 
 Cria um commit com uma mensagem 
 
-git commit -m "Alterando campo text para check box"
+git commit -m "Contruindo segurança para acessar o checklist"
 
 
 git push -u origin master
