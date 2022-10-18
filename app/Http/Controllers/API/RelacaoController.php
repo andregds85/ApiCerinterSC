@@ -13,7 +13,7 @@ class RelacaoController extends BaseController
   public function index(Request $request)
     {
         $relacao = Relacao::all();
-        return $this->sendResponse(RelacaoResource::collection($relacao), 'Todos os Grupos Listados.');
+        return $this->sendResponse(RelacaoResource::collection($relacao), 'Mostra o id do usuário e o grupo em que está Inserido.');
    
     }
 }
