@@ -18,12 +18,6 @@ Route::middleware('auth:sanctum')->group( function () {
     Route::resource('checklist', ChecklistController::class); 
     Route::resource('grupos', RoleController::class); 
     Route::resource('papel', RelacaoController::class); 
-
-
-
-
-
-    
 });
 
 

@@ -11,9 +11,9 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use DB;
 
-
+use App\Models\Relacao;
+use App\Http\Resources\Relacao as RelacaoResource;
 use App\Http\Resources\Checklist as ChecklistResource;
-
    
 class ChecklistController extends BaseController
 {
@@ -22,8 +22,13 @@ class ChecklistController extends BaseController
     {
         echo  $authUser = Auth::user();  
         echo  $id = $authUser->id; 
+        $relacao = Relacao::all(); 
 
+        $Relacao1=Relacao::where('model_id',$id)->get(); 
+        $Relacao1;
 
+        
+       
         $checks = Checklist::all();
         return $this->sendResponse(ChecklistResource::collection($checks), 'Todos os CheckList Listados.');
     }
