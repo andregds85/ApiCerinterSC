@@ -20,15 +20,20 @@ class ChecklistController extends BaseController
 
        public function index()
     {
-        echo  $authUser = Auth::user();  
-        echo  $id = $authUser->id; 
+        $authUser = Auth::user();  
+       echo  $id = $authUser->id; 
         $relacao = Relacao::all(); 
 
         $Relacao1=Relacao::where('model_id',$id)->get(); 
         $Relacao1;
-
         
+          foreach ($Relacao1 as $item) {
+            $role_id=$item->role_id;
+            $model_id=$item->model_id;
+           }
        
+           $role_id;
+
         $checks = Checklist::all();
         return $this->sendResponse(ChecklistResource::collection($checks), 'Todos os CheckList Listados.');
     }
